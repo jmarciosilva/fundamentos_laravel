@@ -13,7 +13,7 @@ class SiteController extends Controller
      */
     public function index()
     {
-        echo "controller INDEX";
+        return view('home');
     }
 
     /**
@@ -56,6 +56,23 @@ class SiteController extends Controller
      */
     public function servico(int $id)
     {
-        echo "controller Serviço $id";
+        $servicos = [
+            1 => [
+                'nome' => 'Lavagem de Roupas',
+                'descricao' => 'Descrição Longa...'
+            ],
+            2 => [
+                'nome' => 'Lavagem de Cobertor',
+                'descricao' => 'Descrição Longa...'
+            ],
+            3 => [
+                'nome' => 'Lavagem de Urso',
+                'descricao' => 'Descrição Longa...'
+            ],
+        ];
+
+        return view('site.servico', [
+            'servico' => $servicos[$id]
+        ]);
     }
 }
